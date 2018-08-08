@@ -5,6 +5,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.xinhe.cashloan.ui.activity.MainActivity">
-
+    <me.majiajie.pagerbottomtabstrip.PageNavigationView
+        android:id="@+id/tab"
+        app:elevation="8dp"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/bg_color_f9"
+        android:layout_alignParentBottom="true"
+        />
+    <com.xinhe.cashloan.ui.adpater.NoTouchViewPager
+        android:id="@+id/viewPager"
+        android:layout_above="@id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.xinhe.cashloan.ui.adpater.NoTouchViewPager>
 
 </RelativeLayout>
