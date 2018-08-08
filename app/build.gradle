@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 27
     defaultConfig {
-        applicationId "xinhe.com.xinhe.cashloan"
+        applicationId "com.xinhe.cashloan"
         minSdkVersion 19
         targetSdkVersion 27
         versionCode 1
