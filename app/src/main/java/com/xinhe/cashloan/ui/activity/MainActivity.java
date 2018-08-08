@@ -1,9 +1,10 @@
-package com.xinhe.cashloan;
+package com.xinhe.cashloan.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.xinhe.cashloan.xianjindai.R;
+import com.xinhe.cashloan.R;
+
 
 /**
  * @author yanshihao
