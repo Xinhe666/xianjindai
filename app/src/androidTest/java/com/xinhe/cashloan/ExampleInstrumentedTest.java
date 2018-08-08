@@ -1,4 +1,4 @@
-package cashloan.xinhe.com.xianjindai;
+package com.xinhe.cashloan;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

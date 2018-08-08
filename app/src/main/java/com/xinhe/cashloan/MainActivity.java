@@ -1,8 +1,13 @@
-package cashloan.xinhe.com.xianjindai;
+package com.xinhe.cashloan;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.xinhe.cashloan.xianjindai.R;
+
+/**
+ * @author yanshihao
+ */
 public class MainActivity extends AppCompatActivity {
 
     @Override

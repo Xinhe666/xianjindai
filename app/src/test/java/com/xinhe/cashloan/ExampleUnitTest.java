@@ -1,4 +1,4 @@
-package cashloan.xinhe.com.xianjindai;
+package com.xinhe.cashloan;
 
 import org.junit.Test;
 
