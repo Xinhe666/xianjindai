@@ -7,6 +7,9 @@
 
     <color name="base_white">#f2f3f5</color>
     <color name="white">#FFFFFF</color>
+    <color name="select_text_color">#333333</color>
+    <color name="gay">#999999</color>
+    <color name="theme_color">#0789ff</color>
 
     <color name="text_color_00">#000000</color>
     <color name="text_color_huang">#f9c600</color>

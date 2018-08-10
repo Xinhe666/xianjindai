@@ -1,9 +1,185 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xinhe.cashloan.ui.activity.LoginActivity">
+    android:background="@color/bg_color_ee"
+    android:orientation="vertical">
 
-</android.support.constraint.ConstraintLayout>
+    <include layout="@layout/layout_toolbar" />
+
+    <RelativeLayout
+        android:id="@+id/login_phone_rl"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:paddingLeft="20dp">
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="手机号:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/bt_code"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/button_sure"
+            android:text="验证"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@id/bt_code"
+            android:layout_toRightOf="@id/tv_phone"
+            android:background="@null"
+            android:digits="0123456789"
+            android:hint="请输入手机号"
+            android:inputType="phone"
+            android:lines="1"
+            android:maxLength="11"
+            android:paddingLeft="10dp"
+            android:textSize="13sp"
+            android:theme="@style/MyEditText" />
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_code"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:paddingLeft="20dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/tv_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="验证码:"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/et_code"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/tv_code"
+            android:background="@null"
+            android:hint="请输入验证码"
+            android:inputType="number"
+            android:lines="1"
+            android:maxLength="4"
+            android:paddingLeft="10dp"
+            android:textSize="13sp"
+            android:theme="@style/MyEditText" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <CheckBox
+            android:id="@+id/login_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:checked="true"
+            android:clickable="false"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            android:theme="@style/MyCheckBox" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="同意并接受" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="《现金贷服务协议》"
+            android:textColor="@color/text_color_huang" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp">
+
+        <SeekBar
+            android:id="@+id/login_sb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:clickable="false"
+            android:max="100"
+            android:maxHeight="45dp"
+            android:minHeight="45dp"
+            android:padding="1dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/seekbar_bg"
+            android:splitTrack="false"
+            android:thumb="@drawable/seekbar_thumb"
+            android:thumbOffset="0dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:focusable="false"
+            android:text="向右滑动验证"
+            android:textColor="@color/text_color_66"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+    <!-- <Button
+         android:id="@+id/bt_login"
+         android:layout_width="match_parent"
+         android:layout_height="45dp"
+         android:layout_marginLeft="40dp"
+         android:layout_marginRight="40dp"
+         android:layout_marginTop="20dp"
+         android:background="@color/theme_color"
+         android:text="登录"
+         android:textColor="@color/white"
+         android:visibility="gone" />-->
+    <!-- <TextView
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_alignParentBottom="true"
+         android:layout_centerHorizontal="true"
+         android:layout_gravity="center_horizontal"
+         android:layout_marginBottom="50dp"
+         android:layout_marginTop="30dp"
+         android:text="贷款，投资你的明天"
+         android:textColor="@color/gay"
+         android:textSize="18sp" />-->
+</LinearLayout>
+
+
+

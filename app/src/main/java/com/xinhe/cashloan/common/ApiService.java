@@ -10,6 +10,9 @@ import com.xinhe.cashloan.inter.OnRequestDataListener;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 
 /**
  * Created by apple on 2018/4/13.
@@ -21,15 +24,15 @@ public class ApiService {
      * @param listener
      * banner
      */
-    public static void GET_SERVICE(String url, JSONObject params, final OnRequestDataListener listener) {
+    public static void GET_SERVICE(String url, Map<String,String> params, final OnRequestDataListener listener) {
         newExcuteJsonPost(url,params,listener);
     }
 
-    private static void newExcuteJsonPost(String url, JSONObject params, final OnRequestDataListener listener){
+    private static void newExcuteJsonPost(String url, Map<String,String> params, final OnRequestDataListener listener){
         final String netError = App.getApp().getString(R.string.error_net);
         OkGo.<String>post(url)
                 .tag(App.getApp())
-                .upJson(params)
+                .params(params,false)
                 .execute(new StringCallback() {
                     @Override
                     public void onSuccess(Response<String> response) {

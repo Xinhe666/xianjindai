@@ -15,7 +15,7 @@ android {
         release {
             v1SigningEnabled true
             v2SigningEnabled true
-            storeFile file("/Users/apple/Documents/文件/安卓.jks")
+            storeFile file("/Users/yanshihao/Documents/work/签名文件/安卓.jks")
             storePassword "000000"
             keyAlias "安卓"
             keyPassword "000000"
@@ -91,5 +91,6 @@ dependencies {
     implementation 'com.umeng.sdk:push-huawei:1.0.0'
     //魅族Push通道
     implementation 'com.umeng.sdk:push-meizu:1.0.0'
-
+    //加载框
+    implementation 'com.kaopiz:kprogresshud:1.0.5'
 }

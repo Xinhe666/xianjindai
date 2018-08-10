@@ -1,6 +1,5 @@
 package com.xinhe.cashloan.utils;
 
-import android.content.Context;
 import android.widget.Toast;
 
 import com.xinhe.cashloan.App;
