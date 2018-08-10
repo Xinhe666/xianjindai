@@ -1,10 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'walle'
 
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-def keystoreProperties = new Properties()
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -19,10 +15,10 @@ android {
         release {
             v1SigningEnabled true
             v2SigningEnabled true
-            storeFile file(keystoreProperties['RELEASE_STORE_FILE'])
-            storePassword keystoreProperties['RELEASE_KEYSTORE_PASSWORD']
-            keyAlias keystoreProperties['RELEASE_KEY_ALIAS']
-            keyPassword keystoreProperties['RELEASE_KEY_PASSWORD']
+            storeFile file("/Users/apple/Documents/文件/安卓.jks")
+            storePassword "000000"
+            keyAlias "安卓"
+            keyPassword "000000"
         }
 
     }
@@ -56,6 +52,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

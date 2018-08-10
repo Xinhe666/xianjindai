@@ -8,7 +8,9 @@ import org.json.JSONObject;
  * Author: XuDeLong
  */
 public interface OnRequestDataListener {
-    void requestSuccess(int code, JSONObject data);
+    void requestSuccess(int code, JSONObject json);
 
     void requestFailure(int code, String msg);
+
+    void onFinish();
 }

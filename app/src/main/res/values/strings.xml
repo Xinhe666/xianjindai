@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">现金贷</string>
 
-   <!-- error-->
+    <!-- error-->
     <string name="error_net">网络异常</string>
 
 

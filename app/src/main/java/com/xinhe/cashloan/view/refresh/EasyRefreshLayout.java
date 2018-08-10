@@ -635,7 +635,13 @@ public class EasyRefreshLayout extends ViewGroup {
     public interface OnRefreshListener {
         void onRefreshing();
     }
-
+    // 提供外部设置方法
+    public void addEasyEvent(EasyEvent event) {
+        if (event == null) {
+            throw new ERVHRuntimeException("adapter can not be null");
+        }
+        this.easyEvent = event;
+    }
     public interface EasyEvent extends OnRefreshListener, LoadMoreEvent {
 
     }

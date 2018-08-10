@@ -14,6 +14,7 @@ import com.xinhe.cashloan.ui.fragment.CreditFragment;
 import com.xinhe.cashloan.ui.fragment.HomeFragment;
 import com.xinhe.cashloan.ui.fragment.LoanFragment;
 import com.xinhe.cashloan.utils.ToastUtils;
+import com.xinhe.cashloan.view.NormalItemView;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.PermissionListener;
 
@@ -24,7 +25,6 @@ import butterknife.BindView;
 import me.majiajie.pagerbottomtabstrip.NavigationController;
 import me.majiajie.pagerbottomtabstrip.PageNavigationView;
 import me.majiajie.pagerbottomtabstrip.item.BaseTabItem;
-import me.majiajie.pagerbottomtabstrip.item.NormalItemView;
 
 
 /**
@@ -38,6 +38,11 @@ public class MainActivity extends BaseActivity {
     NoTouchViewPager viewPager;
     public static NavigationController navigationController;
 
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_main;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +92,7 @@ public class MainActivity extends BaseActivity {
                 finish();
             } else {
                 mLastBackTime = System.currentTimeMillis();
-                ToastUtils.showToast(this, "再按一次退出");
+                ToastUtils.showToast( "再按一次退出");
             }
     }
 
@@ -104,7 +109,7 @@ public class MainActivity extends BaseActivity {
         @Override
         public void onFailed(int requestCode, List<String> deniedPermissions) {
             // 权限申请失败回调。
-            ToastUtils.showToast(MainActivity.this, "为了您的账号安全,请打开设备权限");
+            ToastUtils.showToast( "为了您的账号安全,请打开设备权限");
             if (requestCode == 200) {
                 if ((AndPermission.hasAlwaysDeniedPermission(MainActivity.this, deniedPermissions))) {
                     AndPermission.defaultSettingDialog(MainActivity.this, 500).show();
@@ -113,8 +118,5 @@ public class MainActivity extends BaseActivity {
         }
     };
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_main;
-    }
+
 }

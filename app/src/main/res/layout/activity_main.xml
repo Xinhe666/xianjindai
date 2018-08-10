@@ -10,7 +10,7 @@
         app:elevation="8dp"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/bg_color_f9"
+        android:background="@drawable/tab_background"
         android:layout_alignParentBottom="true"
         />
     <com.xinhe.cashloan.ui.adpater.NoTouchViewPager

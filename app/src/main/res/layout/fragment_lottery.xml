@@ -1,13 +1,42 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="@color/base_white"
     tools:context="com.xinhe.cashloan.ui.fragment.LoanFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="50dp"
+        android:background="@color/white"
+        >
 
-</FrameLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textSize="18sp"
+            android:textColor="@color/text_color_32"
+            android:text="贷款大全"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_marginTop="1dp"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:gravity="center_horizontal"
+        android:background="#eaf1ff"
+        >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="申请3款以上产品通过率更高"
+                android:textSize="11sp"
+                android:drawablePadding="3dp"
+                android:drawableLeft="@mipmap/tip"
+                android:textColor="@color/bg_color_blue"
+                android:layout_centerInParent="true"
+                />
+    </RelativeLayout>
+</LinearLayout>

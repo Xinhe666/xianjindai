@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <cn.bingoogolapple.bgabanner.BGABanner
+        android:id="@+id/banner_fresco_demo_content"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        style="@style/BannerDefaultStyle"
+        app:banner_isNeedShowIndicatorOnOnlyOnePage="true"
+        app:banner_pointDrawable="@drawable/bga_banner_selector_point_hollow"
+        app:banner_pointAutoPlayAble="true"
+        app:banner_pointContainerBackground="@android:color/transparent"
+        app:banner_transitionEffect="defaultEffect"
+        android:scaleType="centerCrop"
+        app:banner_aspectRatio="2.5"
+        android:adjustViewBounds="true"
+        >
+    </cn.bingoogolapple.bgabanner.BGABanner>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/layout_loan"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/iv_loan"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="贷款大全"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/main_fragment_ll1_tv2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="亲测好产品"
+                android:textColor="@color/bg_color_99"
+                android:layout_marginTop="3dp"
+                android:textSize="9sp"
+                android:layout_marginBottom="10dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout_recommen"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/iv_recommen"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="精品推荐"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="万千贷友极力推荐"
+                android:textColor="@color/bg_color_99"
+                android:layout_marginTop="3dp"
+                android:textSize="9sp"
+                android:layout_marginBottom="10dp"
+                />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/layout_credit"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            >
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/iv_credit"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="我要办卡"
+                android:textColor="@color/black"
+                android:layout_marginTop="5dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="办卡 取现 代还"
+                android:textColor="@color/bg_color_99"
+                android:layout_marginTop="3dp"
+                android:textSize="9sp"
+                android:layout_marginBottom="10dp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="wrap_content" >
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="热门推荐"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:text="HOT"
+                android:textColor="#42dca7"
+                android:textSize="14sp"
+                android:typeface="sans" />
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/hot_recycler"
+            android:layout_marginTop="10dp"
+            android:paddingBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:paddingBottom="10dp"
+        >
+        <TextView
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="新品上线"
+            android:textColor="@color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="10dp"
+            android:text="NEW"
+            android:textColor="#f90000"
+            android:textSize="14sp"
+            android:typeface="sans" />
+    </LinearLayout>
+</LinearLayout>

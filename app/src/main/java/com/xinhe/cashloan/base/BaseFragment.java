@@ -11,11 +11,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.ButterKnife;
+import butterknife.Unbinder;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public abstract class BaseFragment extends Fragment {
 
+    Unbinder unbinder;
 
     public BaseFragment() {
         // Required empty public constructor
@@ -25,6 +29,7 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate( getLayoutId(), container, false);
+        unbinder = ButterKnife.bind(this, view);
         return view;
     }
 
@@ -36,4 +41,9 @@ public abstract class BaseFragment extends Fragment {
     @LayoutRes
     protected abstract int getLayoutId();
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbinder.unbind();
+    }
 }

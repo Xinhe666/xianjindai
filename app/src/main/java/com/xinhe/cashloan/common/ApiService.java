@@ -55,6 +55,12 @@ public class ApiService {
                         super.onError(response);
                         listener.requestFailure(-1, netError);
                     }
+
+                    @Override
+                    public void onFinish() {
+                        super.onFinish();
+                        listener.onFinish();
+                    }
                 });
 
     }
