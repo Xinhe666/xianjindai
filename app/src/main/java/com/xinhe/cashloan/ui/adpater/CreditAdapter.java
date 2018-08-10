@@ -1,9 +1,13 @@
 package com.xinhe.cashloan.ui.adpater;
 
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.support.annotation.Nullable;
-import android.view.View;
+import android.text.TextUtils;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -44,5 +48,30 @@ public class CreditAdapter extends BaseQuickAdapter<CreditBean, BaseViewHolder> 
                 .into((ImageView) helper.getView(R.id.credit_logo));
         LinearLayout linearLayout = helper.getView(R.id.credit_tag);
 
+        addView(linearLayout, item.getTip1(), item.getFont1());
+        addView(linearLayout, item.getTip2(), item.getFont2());
+        addView(linearLayout, item.getTip3(), item.getFont3());
+
+
+    }
+
+    private void addView(LinearLayout linearLayout, String name, String color) {
+        if (TextUtils.isEmpty(color)) {
+
+        }
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT
+                , ViewGroup.LayoutParams.WRAP_CONTENT);
+        TextView textView = new TextView(mContext);
+        GradientDrawable drawable = new GradientDrawable();
+        drawable.setCornerRadius(5);
+        drawable.setStroke(1, Color.parseColor(color));
+        textView.setBackground(drawable);
+        textView.setTextColor(Color.parseColor(color));
+        textView.setTextSize(12);
+        textView.setText(name);
+        layoutParams.leftMargin = 5;
+        layoutParams.rightMargin = 5;
+        textView.setLayoutParams(layoutParams);
+        linearLayout.addView(textView);
     }
 }

@@ -9,8 +9,8 @@ import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.BaseViewHolder;
 import com.xinhe.cashloan.R;
+import com.xinhe.cashloan.glide.GlideCircleTransform;
 import com.xinhe.cashloan.model.Product;
-import com.xinhe.cashloan.utils.GlideCircleTransform;
 
 import java.util.List;
 

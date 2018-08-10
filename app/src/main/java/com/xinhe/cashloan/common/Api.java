@@ -9,6 +9,8 @@ public interface Api {
 
     String HOST = "http://api.anwenqianbao.com/v2/";
 
+    String CREDIT = HOST + "vip/creditCard";
+
     interface Home {
         /**
          * 新品
@@ -37,5 +39,6 @@ public interface Api {
      * 验证码效验
      **/
     String CHECKCODE = HOST + "sms/checkCode";
+
 
 }

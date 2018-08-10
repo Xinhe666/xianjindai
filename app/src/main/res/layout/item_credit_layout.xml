@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:layout_height="80dp"
     android:background="@color/white"
-    android:layout_height="75dp">
+    android:paddingBottom="5dp"
+    android:paddingTop="5dp">
     <!--上面的属性去掉阴影-->
 
     <android.support.v7.widget.AppCompatImageView
@@ -22,8 +24,7 @@
         android:layout_toRightOf="@+id/credit_logo"
         android:text="title"
         android:textColor="@color/text_color_00"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:textSize="14sp" />
 
     <LinearLayout
         android:id="@+id/credit_tag"
@@ -44,14 +45,12 @@
         android:layout_marginTop="10dp"
         android:layout_toRightOf="@+id/credit_logo"
         android:text="title"
-        android:textColor="@color/text_color_00"
-        android:textSize="14sp"
-        android:textStyle="bold" />
+        android:textSize="12sp" />
 
     <ImageView
         android:id="@+id/credit_more"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
         android:layout_alignParentEnd="true"
         android:layout_centerVertical="true"
         android:layout_marginEnd="10dp"
