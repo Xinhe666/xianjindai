@@ -24,6 +24,25 @@ public interface Api {
          * 热门
          **/
         String HOT_PRODUCT = HOST + "vest/hotProduct";
+        /**
+         * 我要办卡
+         */
+        String BANK = HOST + "vest/projectLink";
+        /**
+         * 精品推荐
+         */
+        String RECOMMEND = HOST + "vest/projectLink";
+
+        /**
+         * 产品详情
+         */
+        String PRODUCT_DETAIL = HOST + "vest/detail";
+
+        /**
+         * 产品筛选
+         */
+        String PRODUCT_SCREEN = HOST + "vest/screening";
+
 
     }
 

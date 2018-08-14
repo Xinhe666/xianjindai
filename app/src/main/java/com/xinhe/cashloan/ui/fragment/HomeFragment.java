@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -20,14 +21,18 @@ import com.google.gson.Gson;
 import com.xinhe.cashloan.App;
 import com.xinhe.cashloan.R;
 import com.xinhe.cashloan.base.BaseFragment;
+import com.xinhe.cashloan.base.DiBean;
 import com.xinhe.cashloan.common.Api;
 import com.xinhe.cashloan.common.ApiService;
 import com.xinhe.cashloan.inter.OnRequestDataListener;
 import com.xinhe.cashloan.model.Banner;
 import com.xinhe.cashloan.model.Product;
+import com.xinhe.cashloan.ui.activity.DescActivity;
 import com.xinhe.cashloan.ui.activity.HtmlActivity;
+import com.xinhe.cashloan.ui.activity.MainActivity;
 import com.xinhe.cashloan.ui.adpater.HotAdapter;
 import com.xinhe.cashloan.ui.adpater.NewsAdapter;
+import com.xinhe.cashloan.utils.LogUtils;
 import com.xinhe.cashloan.utils.ToastUtils;
 import com.xinhe.cashloan.view.RecycleViewDivider;
 import com.xinhe.cashloan.view.SpacesItemDecoration;
@@ -58,6 +63,7 @@ public class HomeFragment extends BaseFragment {
 
     private NewsAdapter mNewsAdapter;
     private HotAdapter mHotAdapter;
+    private String mBankLink;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -99,7 +105,7 @@ public class HomeFragment extends BaseFragment {
         mLoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                MainActivity.navigationController.setSelect(1);
             }
         });
         mRecommen.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +117,14 @@ public class HomeFragment extends BaseFragment {
         mCredit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                if(!TextUtils.isEmpty(mBankLink)){
+                    Intent intent = new Intent(getActivity(), HtmlActivity.class);
+                    intent.putExtra("title", "我要办卡");
+                    intent.putExtra("link", mBankLink);
+                    startActivity(intent);
+                }else {
+                    ToastUtils.showToast("系统升级中...");
+                }
             }
         });
 
@@ -119,8 +132,9 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Product product = mHotAdapter.getData().get(position);
-                Intent intent = new Intent(getActivity(), HtmlActivity.class);
-                intent.putExtra("link", product.getId());
+                Intent intent = new Intent(getActivity(), DescActivity.class);
+                intent.putExtra("title", product.getP_name());
+                intent.putExtra("id", product.getId());
                 startActivity(intent);
             }
         });
@@ -128,8 +142,9 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Product product = mNewsAdapter.getData().get(position);
-                Intent intent = new Intent(getActivity(), HtmlActivity.class);
-                intent.putExtra("link", product.getId());
+                Intent intent = new Intent(getActivity(), DescActivity.class);
+                intent.putExtra("title", product.getP_name());
+                intent.putExtra("id", product.getId());
                 startActivity(intent);
 
             }
@@ -182,13 +197,13 @@ public class HomeFragment extends BaseFragment {
                 intent.putExtra("link", model.getApp());
                 intent.putExtra("title", model.getAdvername());
                 startActivity(intent);
-
             }
         });
         return view;
     }
 
     private void getData() {
+        /**新品**/
         ApiService.GET_SERVICE(Api.Home.NEW_PRODUCT, null, new OnRequestDataListener() {
             @Override
             public void requestSuccess(int code, JSONObject json) {
@@ -217,6 +232,7 @@ public class HomeFragment extends BaseFragment {
                 }
             }
         });
+        /**Banner**/
 
         ApiService.GET_SERVICE(Api.Home.BANNER, null, new OnRequestDataListener() {
             @Override
@@ -243,6 +259,8 @@ public class HomeFragment extends BaseFragment {
 
             }
         });
+        /**热门推荐**/
+
         ApiService.GET_SERVICE(Api.Home.HOT_PRODUCT, null, new OnRequestDataListener() {
             @Override
             public void requestSuccess(int code, JSONObject json) {
@@ -269,5 +287,46 @@ public class HomeFragment extends BaseFragment {
 
             }
         });
+        /**我要办卡**/
+        ApiService.GET_SERVICE(Api.Home.BANK, null, new OnRequestDataListener() {
+            @Override
+            public void requestSuccess(int code, JSONObject json) {
+                try {
+                    JSONObject data = json.getJSONObject("data");
+                    mBankLink = data.getString("card");
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void requestFailure(int code, String msg) {
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        });
+        /**我要办卡**/
+        ApiService.GET_SERVICE(Api.Home.RECOMMEND, null, new OnRequestDataListener() {
+            @Override
+            public void requestSuccess(int code, JSONObject json) {
+
+            }
+
+            @Override
+            public void requestFailure(int code, String msg) {
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        });
     }
+
 }

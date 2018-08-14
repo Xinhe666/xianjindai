@@ -12,5 +12,10 @@
     <string name="header_completed">加载中…</string>
     <string name="captcha_btn_resend">重发验证码</string>
     <string name="validate_btn_hint">获取验证码</string>
-    <string name="hello_blank_fragment" />
+
+
+    <string name="error">出错了（┬＿┬）</string>
+    <string name="retry">轻触屏幕重试</string>
+    <string name="empty">暂无数据哦！ </string>
+    <string name="title_activity_desc">DescActivity</string>
 </resources>

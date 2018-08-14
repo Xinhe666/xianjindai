@@ -12,6 +12,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.umeng.analytics.MobclickAgent;
+import com.xinhe.cashloan.R;
+import com.xinhe.cashloan.utils.StatusBarUtil;
 
 import butterknife.ButterKnife;
 
@@ -28,6 +30,7 @@ public abstract class BaseActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
+        StatusBarUtil.setColor(this,getResources().getColor(R.color.white));
     }
 
     /**

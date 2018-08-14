@@ -48,6 +48,8 @@ public class CreditAdapter extends BaseQuickAdapter<CreditBean, BaseViewHolder> 
                 .into((ImageView) helper.getView(R.id.credit_logo));
         LinearLayout linearLayout = helper.getView(R.id.credit_tag);
 
+        linearLayout.removeAllViews();
+
         addView(linearLayout, item.getTip1(), item.getFont1());
         addView(linearLayout, item.getTip2(), item.getFont2());
         addView(linearLayout, item.getTip3(), item.getFont3());
@@ -67,8 +69,9 @@ public class CreditAdapter extends BaseQuickAdapter<CreditBean, BaseViewHolder> 
         drawable.setStroke(1, Color.parseColor(color));
         textView.setBackground(drawable);
         textView.setTextColor(Color.parseColor(color));
-        textView.setTextSize(12);
+        textView.setTextSize(11);
         textView.setText(name);
+        textView.setPadding(10,0,10,0);
         layoutParams.leftMargin = 5;
         layoutParams.rightMargin = 5;
         textView.setLayoutParams(layoutParams);

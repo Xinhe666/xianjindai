@@ -134,25 +134,6 @@ public class LoginPersenter {
                 }
             }
         });
-        /*OkgoUtils.execute(Api.CHECKCODE, map, kProgressHUD, new OnRequestListener() {
-            @Override
-            public void requestSuccess(JSONObject jsonObject) {
-                JSONObject date = jsonObject.getJSONObject("data");
-                String msg = date.getString("msg");
-                String isSucess = date.getString("isSuccess");
-                String token = date.getString("token");
-                if ("1".equals(isSucess)) {
-                    mLoginMvpView.loginSuccess(token);
-                } else {
-                    mLoginMvpView.loginFaild(msg);
-                }
-            }
 
-            @Override
-            public void requestFailure(String error) {
-                mLoginMvpView.loginFaild(error);
-
-            }
-        });*/
     }
 }

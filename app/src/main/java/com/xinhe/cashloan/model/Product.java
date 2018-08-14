@@ -25,13 +25,13 @@ public class Product implements Serializable {
      * p_desc : 极速大额借款，资料真实即可
      */
 
-    private int id;
+    private String id;
     private String url;
     private double min_algorithm;
     private String fastest_time;
     private int minimum_amount;
     private int maximum_amount;
-    private int interest_algorithm;
+    private String interest_algorithm;
     private int online;
     private String apply;
     private String p_name;
@@ -39,11 +39,11 @@ public class Product implements Serializable {
     private String p_desc;
     private List<LabelsBean> labels;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -87,11 +87,11 @@ public class Product implements Serializable {
         this.maximum_amount = maximum_amount;
     }
 
-    public int getInterest_algorithm() {
+    public String getInterest_algorithm() {
         return interest_algorithm;
     }
 
-    public void setInterest_algorithm(int interest_algorithm) {
+    public void setInterest_algorithm(String interest_algorithm) {
         this.interest_algorithm = interest_algorithm;
     }
 

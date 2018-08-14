@@ -1,6 +1,7 @@
 package com.xinhe.cashloan.ui.activity.login;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -17,8 +18,11 @@ import android.widget.TextView;
 import com.kaopiz.kprogresshud.KProgressHUD;
 import com.xinhe.cashloan.R;
 import com.xinhe.cashloan.base.BaseActivity;
+import com.xinhe.cashloan.common.Contacts;
+import com.xinhe.cashloan.ui.activity.HtmlActivity;
 import com.xinhe.cashloan.utils.CaptchaTimeCount;
 import com.xinhe.cashloan.utils.CommonUtil;
+import com.xinhe.cashloan.utils.SPUtil;
 import com.xinhe.cashloan.utils.ToastUtils;
 
 import butterknife.BindView;
@@ -52,6 +56,11 @@ public class LoginActivity extends BaseActivity
     private CaptchaTimeCount captchaTimeCount;
 
     private boolean isVerify;
+
+    @Override
+    protected int getLayoutId() {
+        return R.layout.activity_login;
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -91,8 +100,7 @@ public class LoginActivity extends BaseActivity
     }
 
     private void saveToken(String token) {
-        // TODO: 2018/8/8 保存token 跳转
-
+        SPUtil.putString(Contacts.TOKEN,token);
     }
 
     @Override
@@ -149,13 +157,16 @@ public class LoginActivity extends BaseActivity
     }
 
     private void launch() {
-        // TODO: 2018/8/10  跳转
-        ToastUtils.showToast("登录成功");
-    }
 
-    @Override
-    protected int getLayoutId() {
-        return R.layout.activity_login;
+        String title = getIntent().getStringExtra("title");
+        String link = getIntent().getStringExtra("link");
+        if(!TextUtils.isEmpty(title)){
+            Intent intent=new Intent(this, HtmlActivity.class);
+            intent.putExtra("title",title);
+            intent.putExtra("link",link);
+            startActivity(intent);
+        }
+        finish();
     }
 
     @Override

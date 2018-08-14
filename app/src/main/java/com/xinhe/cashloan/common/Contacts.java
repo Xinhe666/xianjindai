@@ -7,7 +7,7 @@ package com.xinhe.cashloan.common;
 public interface Contacts {
 
     String PHONE = "phone";
-
+    String TOKEN = "token";
 
     interface KEY {
         /**

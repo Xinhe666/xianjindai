@@ -5,8 +5,11 @@
     android:layout_height="match_parent"
     android:background="@color/bg_color_ee"
     android:orientation="vertical">
-
-    <include layout="@layout/layout_toolbar" />
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <include layout="@layout/layout_toolbar" />
+    </android.support.design.widget.AppBarLayout>
 
     <RelativeLayout
         android:id="@+id/login_phone_rl"
@@ -23,7 +26,7 @@
             android:layout_centerVertical="true"
             android:text="手机号:"
             android:textSize="14sp"
-            android:textStyle="bold" />
+            />
 
         <Button
             android:id="@+id/bt_code"
@@ -115,13 +118,16 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="同意并接受" />
+            android:text="同意并接受"
+            android:textColor="@color/text_color_66"
+            android:textSize="12sp"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="《现金贷服务协议》"
-            android:textColor="@color/text_color_huang" />
+            android:textColor="@color/text_color_huang"
+            android:textSize="12sp"/>
     </LinearLayout>
 
     <RelativeLayout

@@ -5,7 +5,7 @@ android {
     compileSdkVersion 27
     defaultConfig {
         applicationId "com.xinhe.cashloan"
-        minSdkVersion 19
+        minSdkVersion 15
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -15,7 +15,7 @@ android {
         release {
             v1SigningEnabled true
             v2SigningEnabled true
-            storeFile file("/Users/yanshihao/Documents/work/签名文件/安卓.jks")
+            storeFile file("/Users/apple/Documents/文件/安卓.jks")
             storePassword "000000"
             keyAlias "安卓"
             keyPassword "000000"
@@ -67,6 +67,7 @@ dependencies {
     implementation 'cn.leancloud.android:avoscloud-sdk:v4.6.4'
 
     implementation 'me.majiajie:pager-bottom-tab-strip:2.2.5'
+    compile 'com.github.mancj:SlideUp-Android:2.2.5'
 
     implementation 'com.yanzhenjie:permission:1.1.2'
     implementation 'com.github.ybq:Android-SpinKit:1.0.2'
