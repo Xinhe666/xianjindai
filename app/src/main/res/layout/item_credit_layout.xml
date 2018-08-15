@@ -50,8 +50,8 @@
             android:id="@+id/credit_more"
             android:layout_width="15dp"
             android:layout_height="15dp"
-            android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:src="@mipmap/icon_arrow_right" />
+            android:src="@mipmap/icon_arrow_right"
+            android:layout_alignParentRight="true" />
 
 </RelativeLayout>

@@ -69,7 +69,7 @@ public class LoginPersenter {
             public void requestSuccess(int code, JSONObject json) {
                 try {
                     JSONObject date = json.getJSONObject("data");
-                    String string = date.getString("isSucess");
+                    String string = date.getString("isSuccess");
                     //验证码获取是否成功（1成功 0失败）
                     if ("1".equals(string)) {
                         mLoginMvpView.getCodeSuccess();

@@ -31,7 +31,7 @@ public interface Api {
         /**
          * 精品推荐
          */
-        String RECOMMEND = HOST + "vest/projectLink";
+        String RECOMMEND = HOST + "vest/recommendProduct";
 
         /**
          * 产品详情
@@ -42,7 +42,10 @@ public interface Api {
          * 产品筛选
          */
         String PRODUCT_SCREEN = HOST + "vest/screening";
-
+        /**
+         * 急速
+         */
+        String TOP_PRODUCT=HOST+"vest/topProduct";
 
     }
 

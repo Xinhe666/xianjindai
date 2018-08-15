@@ -48,8 +48,6 @@ public class InitializeService extends IntentService {
     /** * 启动初始化操作 */
     private void performInit(String param) {
         String channel = WalleChannelReader.getChannel(this.getApplicationContext());
-        AVOSCloud.initialize(this, Contacts.KEY.LEAN_ID,Contacts.KEY.LEAN_KEY);
-
         initUmeng(channel);
         initOkgo(channel);
     }

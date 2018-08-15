@@ -1,12 +1,15 @@
 package com.xinhe.cashloan.ui.activity;
 
 import android.content.Intent;
+import android.graphics.drawable.ClipDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.net.http.SslError;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Gravity;
 import android.view.View;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebChromeClient;
@@ -24,6 +27,7 @@ import com.xinhe.cashloan.base.BaseActivity;
 import com.xinhe.cashloan.utils.DownAPKService;
 import com.xinhe.cashloan.utils.LogUtils;
 import com.xinhe.cashloan.utils.NetworkUtils;
+import com.xinhe.cashloan.utils.StatusBarUtil;
 import com.xinhe.cashloan.utils.ToastUtils;
 
 
@@ -233,6 +237,14 @@ public class HtmlActivity extends BaseActivity {
                 if (webProgressBar.getVisibility() != View.VISIBLE) {
                     webProgressBar.setVisibility(View.VISIBLE);
                 }
+
+                ClipDrawable drawable = new ClipDrawable(new ColorDrawable(getResources().getColor(R.color.color_yellow)), Gravity.LEFT, ClipDrawable.HORIZONTAL);
+                webProgressBar.setProgressDrawable(drawable);//必须先设置到progressbar上再设置level，告诉这个drawable的宽度有多宽，这个level才能生效
+                drawable.setLevel(newProgress * 100);
+                webProgressBar.setProgressDrawable(drawable);
+                webProgressBar.setProgress(newProgress);
+
+
                 webProgressBar.setProgress(newProgress);
             }
         }

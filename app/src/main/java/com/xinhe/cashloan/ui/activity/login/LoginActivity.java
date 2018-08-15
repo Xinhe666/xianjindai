@@ -19,11 +19,14 @@ import com.kaopiz.kprogresshud.KProgressHUD;
 import com.xinhe.cashloan.R;
 import com.xinhe.cashloan.base.BaseActivity;
 import com.xinhe.cashloan.common.Contacts;
+import com.xinhe.cashloan.model.LoginEvent;
 import com.xinhe.cashloan.ui.activity.HtmlActivity;
 import com.xinhe.cashloan.utils.CaptchaTimeCount;
 import com.xinhe.cashloan.utils.CommonUtil;
 import com.xinhe.cashloan.utils.SPUtil;
 import com.xinhe.cashloan.utils.ToastUtils;
+
+import org.greenrobot.eventbus.EventBus;
 
 import butterknife.BindView;
 
@@ -101,6 +104,7 @@ public class LoginActivity extends BaseActivity
 
     private void saveToken(String token) {
         SPUtil.putString(Contacts.TOKEN,token);
+        SPUtil.putString(Contacts.PHONE,getAccount());
     }
 
     @Override
@@ -130,6 +134,8 @@ public class LoginActivity extends BaseActivity
         //判断新老用户（1是（老用户） 0否（新用户））
         isVerify = true;
         if (1 == isolduser) {
+            ToastUtils.showToast("验证成功");
+            //mBtnCode.setVisibility(View.GONE);
             saveToken(token);
             mLayoutCode.setVisibility(View.GONE);
         } else {
@@ -158,6 +164,7 @@ public class LoginActivity extends BaseActivity
 
     private void launch() {
 
+        EventBus.getDefault().post(new LoginEvent(mPhone.getText().toString()));
         String title = getIntent().getStringExtra("title");
         String link = getIntent().getStringExtra("link");
         if(!TextUtils.isEmpty(title)){
@@ -165,6 +172,10 @@ public class LoginActivity extends BaseActivity
             intent.putExtra("title",title);
             intent.putExtra("link",link);
             startActivity(intent);
+        }else {
+            Intent intent=new Intent();
+            intent.putExtra("phone",mPhone.getText().toString());
+            setResult(200,intent);
         }
         finish();
     }

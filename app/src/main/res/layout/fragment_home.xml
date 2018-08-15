@@ -1,10 +1,16 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/base_white"
+    android:orientation="vertical"
     tools:context="com.xinhe.cashloan.ui.fragment.HomeFragment">
-<com.xinhe.cashloan.view.refresh.EasyRefreshLayout
+    <View
+        android:id="@+id/fake_status_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/statusbar_view_height"
+        android:background="#10ffffff"/>
+    <com.xinhe.cashloan.view.refresh.EasyRefreshLayout
     android:id="@+id/easyRefresh"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -15,4 +21,4 @@
     </android.support.v7.widget.RecyclerView>
 </com.xinhe.cashloan.view.refresh.EasyRefreshLayout>
 
-</RelativeLayout>
+</LinearLayout>

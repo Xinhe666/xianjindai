@@ -23,6 +23,7 @@ import com.xinhe.cashloan.model.Product;
 import com.xinhe.cashloan.model.ProductDetail;
 import com.xinhe.cashloan.ui.activity.login.LoginActivity;
 import com.xinhe.cashloan.utils.SPUtil;
+import com.xinhe.cashloan.utils.StatusBarUtil;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -139,7 +140,6 @@ public class DescActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.apply:
-
                 String token = SPUtil.getString(Contacts.TOKEN);
                 if(!TextUtils.isEmpty(token)){
                     Intent intent = new Intent(this, HtmlActivity.class);

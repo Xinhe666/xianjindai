@@ -1,6 +1,7 @@
 package com.xinhe.cashloan.ui.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -19,6 +20,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.mancj.slideup.SlideUp;
@@ -28,6 +30,7 @@ import com.xinhe.cashloan.common.Api;
 import com.xinhe.cashloan.common.ApiService;
 import com.xinhe.cashloan.inter.OnRequestDataListener;
 import com.xinhe.cashloan.model.Product;
+import com.xinhe.cashloan.ui.activity.DescActivity;
 import com.xinhe.cashloan.ui.adpater.LoanAdapter;
 import com.xinhe.cashloan.utils.ToastUtils;
 import com.xinhe.cashloan.view.RecycleViewDivider;
@@ -107,6 +110,16 @@ public class LoanFragment extends BaseFragment {
                 getData(null);
             }
         });
+        mLoanAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                Product product = mLoanAdapter.getData().get(position);
+                Intent intent = new Intent(getActivity(), DescActivity.class);
+                intent.putExtra("title", product.getP_name());
+                intent.putExtra("id", product.getId());
+                startActivity(intent);
+            }
+        });
     }
 
     private void getData(String s) {
@@ -180,14 +193,32 @@ public class LoanFragment extends BaseFragment {
                 ivRecommend.setImageResource(R.mipmap.down_arrow_black);
                 tvRecommend.setTextColor(getResources().getColor(R.color.text_color_32));
                 tvQuick.setTextColor(getResources().getColor(R.color.color_yellow));
+                getTopProduct();
+
                 break;
             case R.id.bt_default:
+                if(slideUp.isVisible()){
+                    slideUp.hide();
+                }
+                getData(null);
                 break;
             case R.id.bt1:
+                if(slideUp.isVisible()){
+                    slideUp.hide();
+                }
+                getData("1");
                 break;
             case R.id.bt2:
+                if(slideUp.isVisible()){
+                    slideUp.hide();
+                }
+                getData("3");
                 break;
             case R.id.bt3:
+                if(slideUp.isVisible()){
+                    slideUp.hide();
+                }
+                getData("4");
                 break;
             case R.id.empty_layout:
                 if(slideUp.isVisible()){
@@ -197,6 +228,33 @@ public class LoanFragment extends BaseFragment {
             default:
                 break;
         }
+    }
+
+    private void getTopProduct() {
+        ApiService.GET_SERVICE(Api.Home.TOP_PRODUCT, null, new OnRequestDataListener() {
+            @Override
+            public void requestSuccess(int code, JSONObject json) {
+                try {
+                    String data = json.getString("data");
+                    List<Product> products = new Gson().fromJson(data, new TypeToken<List<Product>>() {}.getType());
+                    mLoanAdapter.setNewData(products);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void requestFailure(int code, String msg) {
+
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        });
+
     }
 
 }

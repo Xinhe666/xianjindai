@@ -30,7 +30,7 @@ public abstract class BaseActivity  extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
-        StatusBarUtil.setColor(this,getResources().getColor(R.color.white));
+        StatusBarUtil.setColor(this,getResources().getColor(R.color.white),30);
     }
 
     /**

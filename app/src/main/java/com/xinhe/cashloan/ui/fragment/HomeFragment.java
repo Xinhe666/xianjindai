@@ -18,6 +18,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.xinhe.cashloan.App;
 import com.xinhe.cashloan.R;
 import com.xinhe.cashloan.base.BaseFragment;
@@ -64,6 +65,7 @@ public class HomeFragment extends BaseFragment {
     private NewsAdapter mNewsAdapter;
     private HotAdapter mHotAdapter;
     private String mBankLink;
+    private List<Product> products;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -77,8 +79,8 @@ public class HomeFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         initView();
-        getData();
         setListener();
+        getData();
     }
 
 
@@ -111,6 +113,13 @@ public class HomeFragment extends BaseFragment {
         mRecommen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(products!=null&&products.size()!=0){
+                    Product product = products.get(0);
+                    Intent intent = new Intent(getActivity(), DescActivity.class);
+                    intent.putExtra("title", product.getP_name());
+                    intent.putExtra("id", product.getId());
+                    startActivity(intent);
+                }
 
             }
         });
@@ -310,10 +319,16 @@ public class HomeFragment extends BaseFragment {
 
             }
         });
-        /**我要办卡**/
+        /**精品推荐**/
         ApiService.GET_SERVICE(Api.Home.RECOMMEND, null, new OnRequestDataListener() {
             @Override
             public void requestSuccess(int code, JSONObject json) {
+                try {
+                    String data = json.getString("data");
+                    products = new Gson().fromJson(data, new TypeToken<List<Product>>() {}.getType());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
 
             }
 

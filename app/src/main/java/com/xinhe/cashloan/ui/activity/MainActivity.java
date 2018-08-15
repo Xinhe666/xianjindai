@@ -13,6 +13,7 @@ import com.xinhe.cashloan.ui.fragment.CenterFragment;
 import com.xinhe.cashloan.ui.fragment.CreditFragment;
 import com.xinhe.cashloan.ui.fragment.HomeFragment;
 import com.xinhe.cashloan.ui.fragment.LoanFragment;
+import com.xinhe.cashloan.utils.StatusBarUtil;
 import com.xinhe.cashloan.utils.ToastUtils;
 import com.xinhe.cashloan.view.NormalItemView;
 import com.yanzhenjie.permission.AndPermission;
@@ -47,6 +48,7 @@ public class MainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initView();
+        StatusBarUtil.setTranslucentForImageViewInFragment(this, null);
         AndPermission.with(this)
                 .requestCode(200)
                 .permission(Manifest.permission.READ_PHONE_STATE, Manifest.permission.WRITE_EXTERNAL_STORAGE)
@@ -71,7 +73,7 @@ public class MainActivity extends BaseActivity {
         MyViewPagerAdapter myViewPagerAdapter = new MyViewPagerAdapter(getSupportFragmentManager(), mFragments);
         viewPager.setAdapter(myViewPagerAdapter);
         navigationController.setupWithViewPager(viewPager);
-        //viewPager.setOffscreenPageLimit(0);
+        viewPager.setOffscreenPageLimit(mFragments.size());
     }
 
     //创建一个Item

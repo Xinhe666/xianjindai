@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/base_white"
     android:orientation="vertical"
     tools:context="com.xinhe.cashloan.ui.activity.HtmlActivity">
     <android.support.design.widget.AppBarLayout
@@ -13,7 +14,6 @@
     </android.support.design.widget.AppBarLayout>
     <FrameLayout
         android:id="@+id/web_container"
-        android:background="@color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
         <ProgressBar
@@ -21,7 +21,6 @@
             style="?android:attr/progressBarStyleHorizontal"
             android:layout_width="match_parent"
             android:layout_height="3dp"
-            android:background="@android:color/transparent"
             android:indeterminateOnly="false"
             android:visibility="visible"/>
     </FrameLayout>
