@@ -22,6 +22,7 @@
 
     <LinearLayout
         android:layout_marginTop="10dp"
+        android:padding="10dp"
         android:background="@color/white"
         android:orientation="horizontal"
         android:layout_width="match_parent"
@@ -38,27 +39,15 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/iv_loan"
-                android:layout_marginTop="10dp"/>
-
+                android:src="@mipmap/gongxinzu"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="贷款大全"
+                android:text="上班族"
                 android:textColor="@color/black"
                 android:layout_marginTop="5dp"
                 android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/main_fragment_ll1_tv2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="亲测好产品"
-                android:textColor="@color/bg_color_99"
-                android:layout_marginTop="3dp"
-                android:textSize="9sp"
-                android:layout_marginBottom="10dp"
-                />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/layout_recommen"
@@ -71,26 +60,16 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/iv_recommen"
-                android:layout_marginTop="10dp"/>
+                android:src="@mipmap/shengyiren"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="精品推荐"
+                android:text="生意人"
                 android:textColor="@color/black"
                 android:layout_marginTop="5dp"
                 android:textSize="14sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="万千贷友极力推荐"
-                android:textColor="@color/bg_color_99"
-                android:layout_marginTop="3dp"
-                android:textSize="9sp"
-                android:layout_marginBottom="10dp"
-                />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/layout_credit"
@@ -103,28 +82,32 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/iv_credit"
-                android:layout_marginTop="10dp"/>
-
+                android:src="@mipmap/ziyouzhiye"
+                />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="我要办卡"
+                android:text="自由职业"
                 android:textColor="@color/black"
                 android:layout_marginTop="5dp"
                 android:textSize="14sp" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="办卡 取现 代还"
-                android:textColor="@color/bg_color_99"
-                android:layout_marginTop="3dp"
-                android:textSize="9sp"
-                android:layout_marginBottom="10dp"
-                />
         </LinearLayout>
     </LinearLayout>
+    <ViewFlipper
+        android:background="@color/white"
+        android:id="@+id/ViewFlipper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:autoStart="true"
+        android:paddingRight="10dp"
+        android:paddingLeft="10dp"
+        android:flipInterval="1500"
+        android:inAnimation="@anim/fli_in"
+        android:outAnimation="@anim/fli_out"
+        >
+
+    </ViewFlipper>
     <LinearLayout
         android:layout_marginTop="10dp"
         android:background="@color/white"
@@ -140,17 +123,9 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="热门推荐"
+                android:text="新品精选"
                 android:textColor="@color/black"
-                android:textSize="14sp" />
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="3dp"
-                android:text="HOT"
-                android:textColor="#42dca7"
-                android:textSize="14sp"
-                android:typeface="sans" />
+                android:textSize="15sp" />
         </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
@@ -167,25 +142,15 @@
         android:layout_gravity="center_horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:paddingBottom="10dp"
         >
         <TextView
+            android:layout_marginLeft="20dp"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="新品上线"
+            android:text="热门推荐"
             android:textColor="@color/black"
-            android:textSize="14sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="3dp"
-            android:layout_marginTop="10dp"
-            android:text="NEW"
-            android:textColor="#f90000"
-            android:textSize="14sp"
-            android:typeface="sans" />
+            android:textSize="15sp" />
     </LinearLayout>
 </LinearLayout>

@@ -4,148 +4,45 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@color/base_white"
-    tools:context="com.xinhe.cashloan.ui.fragment.LoanFragment">
+    tools:context="com.ant.cashant.ui.fragment.LoanFragment">
     <View
         android:id="@+id/fake_status_bar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/statusbar_view_height"
-        android:background="@color/white"/>
+        android:background="@color/colorPrimary"/>
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@color/white"
+        android:background="@color/colorPrimary"
         >
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textSize="18sp"
-            android:textColor="@color/text_color_32"
+            android:textColor="@color/white"
             android:text="贷款大全"
             android:layout_centerInParent="true"/>
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_marginTop="1dp"
-        android:layout_width="match_parent"
-        android:layout_height="25dp"
+    <TextView
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
         android:gravity="center_horizontal"
-        android:background="#eaf1ff"
-        >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="申请3款以上产品通过率更高"
-                android:textSize="11sp"
-                android:drawablePadding="3dp"
-                android:drawableLeft="@mipmap/tip"
-                android:textColor="@color/bg_color_blue"
-                android:layout_centerInParent="true"
-                />
-    </RelativeLayout>
-
-
-    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/bg_color_ff"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:orientation="horizontal"
-            >
+        android:layout_height="wrap_content"
+        android:text="悄悄告诉你: 申请三款以上产品成功率更高"
+        android:textSize="13sp"
+        android:drawablePadding="3dp"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerInParent="true"
+        />
 
-            <RelativeLayout
-                android:id="@+id/table_select"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_recommend"
-                    android:textColor="@color/text_color_huang"
-                    android:textSize="14sp"
-                    android:text="推荐"
-                    android:layout_centerInParent="true"
-                    />
-                <ImageView
-                    android:id="@+id/iv_recommend"
-                    android:layout_width="11dp"
-                    android:layout_height="6dp"
-                    android:src="@mipmap/down_arrow_yellow"
-                    android:layout_centerInParent="true"
-                    android:layout_toRightOf="@+id/tv_recommend"
-                    android:layout_marginLeft="3dp"
-                    />
-
-            </RelativeLayout>
-            <View
-                android:layout_width="0.5dp"
-                android:layout_height="20dp"
-                android:background="@color/bg_color_da"
-                >
-
-            </View>
-            <RelativeLayout
-                android:id="@+id/table_quick"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/tv_quick"
-                    android:textColor="@color/text_color_32"
-                    android:textSize="14sp"
-                    android:text="极速"
-                    android:layout_centerInParent="true"
-                    />
-            </RelativeLayout>
-        </LinearLayout>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            >
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/bg_color_f7">
-
-                <View
-                    android:layout_width="3dp"
-                    android:layout_height="18dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_centerVertical="true"
-                    android:background="@color/text_color_huang"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="@color/text_color_64"
-                    android:layout_marginLeft="18dp"
-                    android:layout_centerVertical="true"
-                    android:text="产品列表"/>
-            </RelativeLayout>
             <android.support.v4.widget.SwipeRefreshLayout
                 android:id="@+id/SwipeRefreshLayout"
                 android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
                 android:layout_height="wrap_content">
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/recylerview"
@@ -154,9 +51,6 @@
                     >
                 </android.support.v7.widget.RecyclerView>
             </android.support.v4.widget.SwipeRefreshLayout>
-        </LinearLayout>
 
-        <include layout="@layout/product_choose_pop"/>
 
-    </RelativeLayout>
 </LinearLayout>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.xinhe.cashloan.ui.activity.SettingActivity">
+    tools:context="com.ant.cashant.ui.activity.SettingActivity">
     <include layout="@layout/layout_toolbar"/>
     <RelativeLayout
         android:id="@+id/about"

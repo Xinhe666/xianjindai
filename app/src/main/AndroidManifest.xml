@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.xinhe.cashloan">
+    package="com.ant.cashant">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:name=".App"
@@ -26,6 +29,8 @@
         <activity android:name=".ui.activity.GuideActivity" />
         <activity
             android:name=".ui.activity.MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.HtmlActivity"
@@ -33,14 +38,40 @@
         <activity
             android:name=".ui.activity.login.LoginActivity"
             android:screenOrientation="portrait" />
+
+        <service android:name=".base.InitializeService" />
+        <service android:name=".utils.DownAPKService" />
+
         <activity
             android:name=".ui.activity.DescActivity"
-            android:label="@string/title_activity_desc"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".ui.activity.FeedbackActivity" />
-        <activity android:name=".ui.activity.SettingActivity" />
-        <activity android:name=".ui.activity.EmptyActivity" />
-        <activity android:name=".ui.activity.AboutActivity"></activity>
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.FeedbackActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.SettingActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.EmptyActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.activity.AboutActivity"
+            android:screenOrientation="portrait" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".ui.activity.PushActivity"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

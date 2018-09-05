@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/base_white"
-    tools:context="com.xinhe.cashloan.ui.fragment.CreditFragment">
+    tools:context="com.ant.cashant.ui.fragment.CreditFragment">
     <View
         android:id="@+id/fake_status_bar"
         android:layout_width="match_parent"
