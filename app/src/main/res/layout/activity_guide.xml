@@ -37,14 +37,19 @@
 
     <TextView
         android:id="@+id/btn_guide_enter"
-        android:layout_width="150dp"
-        android:layout_height="100dp"
+        android:paddingLeft="10dp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="60dp"
-        android:padding="8dp"
+        android:text="立即体验"
+        android:background="@drawable/button_sure"
         android:textColor="@android:color/white"
-        android:textSize="20sp"
+        android:textSize="18sp"
         android:visibility="gone"
         tools:visibility="visible" />
 </RelativeLayout>

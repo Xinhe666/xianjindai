@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context="com.xinhe.cashloan.ui.activity.EmptyActivity">
+    tools:context="com.Michael.xianjinka.ui.activity.EmptyActivity">
     <include layout="@layout/layout_toolbar"/>
     <ImageView
         android:id="@+id/nodate"
