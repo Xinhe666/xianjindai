@@ -20,7 +20,6 @@ android {
             keyAlias "现金卡"
             keyPassword "000000"
         }
-
     }
     buildTypes {
         debug {

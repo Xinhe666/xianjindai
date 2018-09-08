@@ -67,7 +67,7 @@ public class InitializeService extends IntentService {
     private void initOkgo(String channel) {
         HttpParams params=new HttpParams();
         String name = getString(R.string.appname);
-        params.put("market",channel);
+        params.put("market","123");
         params.put("name", name);
         OkGo.getInstance().init(App.getApp())
                 .addCommonParams(params);
