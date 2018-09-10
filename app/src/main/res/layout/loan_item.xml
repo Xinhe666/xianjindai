@@ -41,6 +41,7 @@
                 android:maxHeight="18dp"
                 android:numStars="5"
                 android:rating="4.5"
+                android:isIndicator="true"
                 app:mrb_progressTint="@color/colorPrimary"
                 app:mrb_secondaryProgressTint="@color/gay"
                 android:stepSize="0.1"

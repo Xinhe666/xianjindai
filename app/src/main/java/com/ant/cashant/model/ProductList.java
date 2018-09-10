@@ -87,7 +87,7 @@ public class ProductList implements Serializable{
          * star : 3
          */
 
-        private int id;
+        private String id;
         private int platform_id;
         private String name;
         private String logo;
@@ -142,11 +142,11 @@ public class ProductList implements Serializable{
         private int max_day_rate;
         private int star;
 
-        public int getId() {
+        public String getId() {
             return id;
         }
 
-        public void setId(int id) {
+        public void setId(String id) {
             this.id = id;
         }
 

@@ -15,7 +15,7 @@ public class RecommProduct implements Serializable {
      * product_desc : 门槛低，审核快，效率高，放款快
      */
 
-    private int id;
+    private String id;
     private int product_id;
     private int sort;
     private String product_name;
@@ -23,11 +23,11 @@ public class RecommProduct implements Serializable {
     private String h5_link;
     private String product_desc;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

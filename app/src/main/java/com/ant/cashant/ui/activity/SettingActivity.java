@@ -11,7 +11,6 @@ import com.ant.cashant.R;
 import com.ant.cashant.base.BaseActivity;
 import com.ant.cashant.common.Contacts;
 import com.ant.cashant.model.LoginEvent;
-import com.ant.cashant.ui.activity.login.LoginActivity;
 import com.ant.cashant.utils.ActivityUtils;
 import com.ant.cashant.utils.SPUtil;
 import com.ant.cashant.utils.StatusBarUtil;

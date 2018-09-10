@@ -68,10 +68,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".ui.activity.PushActivity"
-            android:exported="true"
-            android:launchMode="singleTask"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.LoginActivity"></activity>
     </application>
 
 </manifest>

@@ -22,7 +22,7 @@ public class Product implements Serializable {
      * update_at : 2017-11-20 23:24:21
      */
 
-    private int id;
+    private String id;
     private int product_id;
     private String product_name;
     private String product_logo;
@@ -30,11 +30,11 @@ public class Product implements Serializable {
     private String create_at;
     private String update_at;
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

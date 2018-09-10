@@ -40,4 +40,6 @@
     <color name="bg_color_33">#333333</color>
     <color name="black">#000000</color>
 
+    <color name="dispress_color">#dba2a2</color>
+    <color name="press_color">#b20303</color>
 </resources>

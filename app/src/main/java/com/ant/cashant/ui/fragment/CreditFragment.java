@@ -15,6 +15,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.ant.cashant.ui.activity.LoginActivity;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -26,7 +27,6 @@ import com.ant.cashant.common.Contacts;
 import com.ant.cashant.inter.OnRequestDataListener;
 import com.ant.cashant.model.CreditBean;
 import com.ant.cashant.ui.activity.HtmlActivity;
-import com.ant.cashant.ui.activity.login.LoginActivity;
 import com.ant.cashant.ui.adpater.CreditAdapter;
 import com.ant.cashant.utils.SPUtil;
 import com.ant.cashant.utils.ToastUtils;

@@ -4,6 +4,7 @@ package com.ant.cashant.utils;
 import android.content.Context;
 import android.os.CountDownTimer;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.ant.cashant.R;
 
@@ -13,7 +14,7 @@ import com.ant.cashant.R;
  *
  */
 public class CaptchaTimeCount extends CountDownTimer {
-	private Button validate_btn;
+	private TextView validate_btn;
 	private Context context;
 	/**
 	 * 验证码倒计时
@@ -22,7 +23,7 @@ public class CaptchaTimeCount extends CountDownTimer {
 	 * @param validate_btn 点击的按钮
 	 * @param context
 	 */
-	public CaptchaTimeCount(long millisInFuture, long countDownInterval, Button validate_btn, Context context) {
+	public CaptchaTimeCount(long millisInFuture, long countDownInterval, TextView validate_btn, Context context) {
 	    super(millisInFuture, countDownInterval);
 	    this.validate_btn=validate_btn;
 	    this.context=context;

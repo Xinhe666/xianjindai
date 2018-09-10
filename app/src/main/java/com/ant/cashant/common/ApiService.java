@@ -1,7 +1,10 @@
 package com.ant.cashant.common;
 
+import com.ant.cashant.utils.SPUtil;
 import com.lzy.okgo.OkGo;
 import com.lzy.okgo.callback.StringCallback;
+import com.lzy.okgo.model.HttpHeaders;
+import com.lzy.okgo.model.HttpParams;
 import com.lzy.okgo.model.Response;
 import com.ant.cashant.App;
 import com.ant.cashant.R;
@@ -33,8 +36,11 @@ public class ApiService {
 
     private static void newExcuteJsonPost(String url, Map<String,String> params, final OnRequestDataListener listener){
         final String netError = App.getApp().getString(R.string.error_net);
+        String token = SPUtil.getString(Contacts.TOKEN);
+
         OkGo.<String>post(url)
                 .tag(App.getApp())
+                .headers("X-Token",token)
                 .params(params,false)
                 .execute(new StringCallback() {
                     @Override

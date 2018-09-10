@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import com.ant.cashant.R;
 import com.ant.cashant.base.BaseActivity;
+import com.ant.cashant.utils.StatusBarUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -36,6 +37,7 @@ public class EmptyActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 40);
         toolbarBack.setVisibility(View.VISIBLE);
         String title = getIntent().getStringExtra("title");
         toolbarTitle.setText(title);

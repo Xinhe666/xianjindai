@@ -9,6 +9,15 @@ public interface Contacts {
     String PHONE = "phone";
     String TOKEN = "token";
 
+
+    /** 启动页显示时间 **/
+    int LAUCHER_DIPLAY_MILLIS = 2000;
+    /** 倒计时时间 **/
+    int MILLIS_IN_TOTAL = 60000;
+    /** 时间间隔 **/
+    int COUNT_DOWN_INTERVAL = 1000;
+
+
     interface KEY {
         /**
          * Umeng

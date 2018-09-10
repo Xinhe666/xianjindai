@@ -7,9 +7,10 @@ package com.ant.cashant.common;
 public interface Api {
 
 
-    String HOST = "http://api.shengcaiquan.com/";
+    String HOST = "http://api.shengcaiquan.com/v1/";
 
     String CREDIT = HOST + "vip/creditCard";
+    String APPLY=HOST+"product/apply";
 
     interface Home {
         /**
@@ -19,11 +20,11 @@ public interface Api {
         /**
          * banner
          **/
-        String BANNER = HOST + "v1/banners";
+        String BANNER = HOST + "banners";
         /**
          * 热门
          **/
-        String HOT_PRODUCT = HOST + "v1/recommends";
+        String HOT_PRODUCT = HOST + "recommends";
         /**
          * 我要办卡
          */
@@ -41,7 +42,7 @@ public interface Api {
         /**
          * 产品筛选
          */
-        String PRODUCT_SCREEN = HOST + "v1/product/list";
+        String PRODUCT_SCREEN = HOST + "product/list";
         /**
          * 急速
          */
@@ -55,7 +56,7 @@ public interface Api {
         /**
          * 秒杀
          */
-        String KILL=HOST+"v1/news";
+        String KILL=HOST+"news";
 
         /**
          * 详情推荐
@@ -74,11 +75,11 @@ public interface Api {
     /**
      * 验证码获取
      **/
-    String CODE = HOST + "sms/getcode";
+    String CODE = HOST + "sms/register";
     /**
      * 验证码效验
      **/
-    String CHECKCODE = HOST + "sms/checkCode";
+    String CHECKCODE = HOST + "auth/login";
 
 
 }

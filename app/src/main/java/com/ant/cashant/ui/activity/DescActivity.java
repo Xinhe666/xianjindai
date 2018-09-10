@@ -31,7 +31,6 @@ import com.ant.cashant.inter.OnRequestDataListener;
 import com.ant.cashant.model.Product;
 import com.ant.cashant.model.ProductBean;
 import com.ant.cashant.model.ProductDetail;
-import com.ant.cashant.ui.activity.login.LoginActivity;
 import com.ant.cashant.ui.adpater.ListProductAdapter;
 import com.ant.cashant.ui.adpater.LoanAdapter;
 import com.ant.cashant.utils.SPUtil;

@@ -26,6 +26,9 @@ android {
         }
 
     }
+    lintOptions {
+        abortOnError false
+    }
     buildTypes {
         debug {
             minifyEnabled true
@@ -85,6 +88,8 @@ dependencies {
     implementation 'com.lzy.net:okgo:3.0.4'
     implementation 'com.lzy.net:okrx:1.0.2'
     implementation 'com.lzy.net:okserver:2.0.5'
+    implementation 'com.github.lygttpod:SuperTextView:2.1.8'
+
     //gson
     implementation 'com.google.code.gson:gson:2.8.5'
     //友盟

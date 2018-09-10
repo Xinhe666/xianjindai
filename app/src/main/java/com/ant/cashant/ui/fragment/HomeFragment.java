@@ -16,7 +16,12 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ViewFlipper;
 
+import com.ant.cashant.common.Contacts;
 import com.ant.cashant.model.RecommProduct;
+import com.ant.cashant.model.ScreenEvent;
+import com.ant.cashant.ui.activity.LoginActivity;
+import com.ant.cashant.utils.BrowsingHistory;
+import com.ant.cashant.utils.SPUtil;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
@@ -43,6 +48,7 @@ import com.ant.cashant.view.RecycleViewDivider;
 import com.ant.cashant.view.SpacesItemDecoration;
 import com.ant.cashant.view.refresh.EasyRefreshLayout;
 
+import org.greenrobot.eventbus.EventBus;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -112,32 +118,21 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onClick(View view) {
                 MainActivity.navigationController.setSelect(1);
+                EventBus.getDefault().post(new ScreenEvent("1"));
             }
         });
         mRecommen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(products!=null&&products.size()!=0){
-                    Product product = products.get(0);
-                    Intent intent = new Intent(getActivity(), DescActivity.class);
-                    intent.putExtra("title", product.getProduct_name());
-                    intent.putExtra("id", product.getId());
-                    startActivity(intent);
-                }
-
+                MainActivity.navigationController.setSelect(1);
+                EventBus.getDefault().post(new ScreenEvent("1"));
             }
         });
         mCredit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(!TextUtils.isEmpty(mBankLink)){
-                    Intent intent = new Intent(getActivity(), HtmlActivity.class);
-                    intent.putExtra("title", "我要办卡");
-                    intent.putExtra("link", mBankLink);
-                    startActivity(intent);
-                }else {
-                    ToastUtils.showToast("系统升级中...");
-                }
+                MainActivity.navigationController.setSelect(1);
+                EventBus.getDefault().post(new ScreenEvent("1"));
             }
         });
 
@@ -145,29 +140,44 @@ public class HomeFragment extends BaseFragment {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 Product product = mHotAdapter.getData().get(position);
-                Intent intent = new Intent(getActivity(), DescActivity.class);
-                intent.putExtra("title", product.getProduct_name());
-                intent.putExtra("id", product.getId());
-                startActivity(intent);
+                String token = SPUtil.getString( Contacts.TOKEN);
+                if(TextUtils.isEmpty(token)){
+                    Intent intent=new Intent(getActivity(), LoginActivity.class);
+                    intent.putExtra("title",product.getProduct_name());
+                    intent.putExtra("link",product.getH5_link());
+                    intent.putExtra("id",product.getId());
+                    startActivity(intent);
+                }else {
+                    new BrowsingHistory().execute(product.getId());
+                    Intent intent=new Intent(getActivity(), HtmlActivity.class);
+                    intent.putExtra("title",product.getProduct_name());
+                    intent.putExtra("link",product.getH5_link());
+                    startActivity(intent);
+                }
+
             }
         });
         mNewsAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
                 RecommProduct product = mNewsAdapter.getData().get(position);
-                Intent intent = new Intent(getActivity(), DescActivity.class);
-                intent.putExtra("title", product.getProduct_name());
-                intent.putExtra("id", product.getId());
-                startActivity(intent);
-
+                String token = SPUtil.getString( Contacts.TOKEN);
+                if(TextUtils.isEmpty(token)){
+                    Intent intent=new Intent(getActivity(), LoginActivity.class);
+                    intent.putExtra("title",product.getProduct_name());
+                    intent.putExtra("link",product.getH5_link());
+                    intent.putExtra("id",product.getId());
+                    startActivity(intent);
+                }else {
+                    new BrowsingHistory().execute(product.getId());
+                    Intent intent=new Intent(getActivity(), HtmlActivity.class);
+                    intent.putExtra("title",product.getProduct_name());
+                    intent.putExtra("link",product.getH5_link());
+                    startActivity(intent);
+                }
             }
         });
-     /*   foot.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                MainActivity.navigationController.setSelect(1);
-            }
-        });*/
+
     }
     private RelativeLayout foot;
     private void initView() {

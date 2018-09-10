@@ -68,7 +68,8 @@ public class InitializeService extends IntentService {
         String name = getString(R.string.App_name);
         params.put("market",channel);
         params.put("name", name);
-        OkGo.getInstance().init(App.getApp());
+        OkGo.getInstance().init(App.getApp())
+                            ;
     }
 
     private void initUmeng(String channel) {

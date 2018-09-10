@@ -61,7 +61,7 @@ public class HtmlActivity extends BaseActivity {
         mWebView.setLayoutParams(lp);
         webContainer.addView(mWebView, 0);
         checkinternet();
-
+        StatusBarUtil.setColor(this, getResources().getColor(R.color.colorPrimary), 40);
     }
 
     @Override
