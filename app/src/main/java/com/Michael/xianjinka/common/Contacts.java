@@ -13,7 +13,7 @@ public interface Contacts {
         /**
          * Umeng
          **/
-        String ANALYTICS_KEY = "5b3b365bf29d9834f5000021";
+        String ANALYTICS_KEY = "5878a44f2ae85b278e000881";
         String PUSH_KEY = "";
 
         /**
