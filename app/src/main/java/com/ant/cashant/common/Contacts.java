@@ -17,6 +17,8 @@ public interface Contacts {
     /** 时间间隔 **/
     int COUNT_DOWN_INTERVAL = 1000;
 
+    String PRODUCT_TYPE="1";
+    String BANNER_TYPE="2";
 
     interface KEY {
         /**

@@ -18,8 +18,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.activity.SplashActivity"
-            android:theme="@style/AppTheme.Splash">
+             android:name=".ui.activity.SplashActivity"
+             android:theme="@style/AppTheme.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -34,9 +34,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".ui.activity.HtmlActivity"
-            android:screenOrientation="portrait" />
-        <activity
-            android:name=".ui.activity.login.LoginActivity"
             android:screenOrientation="portrait" />
 
         <service android:name=".base.InitializeService" />
@@ -68,7 +65,7 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".ui.activity.LoginActivity"></activity>
+        <activity android:name=".ui.activity.LoginActivity"/>
     </application>
 
 </manifest>

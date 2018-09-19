@@ -11,17 +11,22 @@ import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowInsets;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.ant.cashant.common.Contacts;
+import com.ant.cashant.glide.GlideRoundTransform;
+import com.ant.cashant.model.PromontionsList;
 import com.ant.cashant.model.RecommProduct;
 import com.ant.cashant.model.ScreenEvent;
 import com.ant.cashant.ui.activity.LoginActivity;
 import com.ant.cashant.utils.BrowsingHistory;
 import com.ant.cashant.utils.SPUtil;
+import com.avos.avoscloud.LogUtil;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
@@ -74,8 +79,7 @@ public class HomeFragment extends BaseFragment {
 
     private NewsAdapter mNewsAdapter;
     private HotAdapter mHotAdapter;
-    private String mBankLink;
-    private List<Product> products;
+    List<PromontionsList.ListBean> list ;
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -145,10 +149,10 @@ public class HomeFragment extends BaseFragment {
                     Intent intent=new Intent(getActivity(), LoginActivity.class);
                     intent.putExtra("title",product.getProduct_name());
                     intent.putExtra("link",product.getH5_link());
-                    intent.putExtra("id",product.getId());
+                    intent.putExtra("id",product.getProduct_id());
                     startActivity(intent);
                 }else {
-                    new BrowsingHistory().execute(product.getId());
+                    new BrowsingHistory().execute(product.getProduct_id(),Contacts.PRODUCT_TYPE);
                     Intent intent=new Intent(getActivity(), HtmlActivity.class);
                     intent.putExtra("title",product.getProduct_name());
                     intent.putExtra("link",product.getH5_link());
@@ -166,10 +170,10 @@ public class HomeFragment extends BaseFragment {
                     Intent intent=new Intent(getActivity(), LoginActivity.class);
                     intent.putExtra("title",product.getProduct_name());
                     intent.putExtra("link",product.getH5_link());
-                    intent.putExtra("id",product.getId());
+                    intent.putExtra("id",product.getProduct_id());
                     startActivity(intent);
                 }else {
-                    new BrowsingHistory().execute(product.getId());
+                    new BrowsingHistory().execute(product.getProduct_id(),Contacts.PRODUCT_TYPE);
                     Intent intent=new Intent(getActivity(), HtmlActivity.class);
                     intent.putExtra("title",product.getProduct_name());
                     intent.putExtra("link",product.getH5_link());
@@ -178,16 +182,28 @@ public class HomeFragment extends BaseFragment {
             }
         });
 
+
+        flipper.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int displayedChild = flipper.getDisplayedChild();
+                PromontionsList.ListBean listBean = list.get(displayedChild);
+                new BrowsingHistory().execute(listBean.getProduct_id(),Contacts.PRODUCT_TYPE);
+                Intent intent=new Intent(getActivity(), HtmlActivity.class);
+                intent.putExtra("title",listBean.getProduct_name());
+                intent.putExtra("link",listBean.getH5_link());
+                startActivity(intent);
+            }
+        });
+
+
     }
-    private RelativeLayout foot;
     private void initView() {
         View view = getLayoutInflater().inflate(R.layout.foot_layout, null);
-         foot = view.findViewById(R.id.foot_layout);
         mNewsAdapter = new NewsAdapter(null);
         mHotAdapter=new HotAdapter(null);
         mRecylerview.setLayoutManager(new LinearLayoutManager(getActivity()));
         mRecylerview.addItemDecoration(new RecycleViewDivider(getActivity(), LinearLayoutManager.VERTICAL, R.drawable.recycler_divider));
-       // mNewsAdapter.addFooterView(view);
         mNewsAdapter.addHeaderView(getHeader());
         mRecylerview.setAdapter(mNewsAdapter);
         mHotRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL,false));
@@ -205,10 +221,7 @@ public class HomeFragment extends BaseFragment {
         mLoan=view.findViewById(R.id.layout_loan);
         mRecommen=view.findViewById(R.id.layout_recommen);
         flipper=view.findViewById(R.id.ViewFlipper);
-        for (int i = 0; i < 5; i++) {
-            View viewer = LayoutInflater.from(getActivity()).inflate(R.layout.layout_custom, null);
-            flipper.addView(viewer);
-        }
+
         mCredit=view.findViewById(R.id.layout_credit);
         mBGABanner=view.findViewById(R.id.banner_fresco_demo_content);
         mBGABanner.setAdapter(new BGABanner.Adapter<ImageView, Banner>() {
@@ -230,6 +243,7 @@ public class HomeFragment extends BaseFragment {
         mBGABanner.setDelegate(new BGABanner.Delegate<ImageView, Banner>() {
             @Override
             public void onBannerItemClick(BGABanner banner, ImageView itemView, Banner model, int position) {
+
                 Intent intent = new Intent(getActivity(), HtmlActivity.class);
                 intent.putExtra("link", model.getH5_link());
                 intent.putExtra("title", model.getName());
@@ -319,36 +333,37 @@ public class HomeFragment extends BaseFragment {
 
             }
         });
-        /**我要办卡**/
-        ApiService.GET_SERVICE(Api.Home.BANK, null, new OnRequestDataListener() {
-            @Override
-            public void requestSuccess(int code, JSONObject json) {
-                try {
-                    JSONObject data = json.getJSONObject("data");
-                    mBankLink = data.getString("card");
 
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void requestFailure(int code, String msg) {
-
-            }
-
-            @Override
-            public void onFinish() {
-
-            }
-        });
+        final RequestOptions options = new RequestOptions()
+                .centerCrop()
+                .transform(new GlideRoundTransform(5))
+                .diskCacheStrategy(DiskCacheStrategy.RESOURCE);
         /**精品推荐**/
-        ApiService.GET_SERVICE(Api.Home.RECOMMEND, null, new OnRequestDataListener() {
+
+
+
+        ApiService.GET_Get(Api.Home.PROMOTIONS, null, new OnRequestDataListener() {
             @Override
             public void requestSuccess(int code, JSONObject json) {
+                flipper.removeAllViews();
                 try {
                     String data = json.getString("data");
-                    products = new Gson().fromJson(data, new TypeToken<List<Product>>() {}.getType());
+
+                    Gson gson=new Gson();
+                    PromontionsList promontionsList = gson.fromJson(data, PromontionsList.class);
+
+                     list = promontionsList.getList();
+                    for (int i = 0; i < list.size(); i++) {
+                        View viewer = LayoutInflater.from(getActivity()).inflate(R.layout.layout_custom, null);
+                        TextView  mName=viewer.findViewById(R.id.name);
+                        TextView  mText= viewer.findViewById(R.id.text);
+                        ImageView mImageView=viewer.findViewById(R.id.logo);
+                        PromontionsList.ListBean listBean = list.get(i);
+                        mName.setText(listBean.getProduct_name());
+                        mText.setText(listBean.getText());
+                        Glide.with(App.getApp()).load(listBean.getProduct_logo()).apply(options).into(mImageView);
+                        flipper.addView(viewer);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

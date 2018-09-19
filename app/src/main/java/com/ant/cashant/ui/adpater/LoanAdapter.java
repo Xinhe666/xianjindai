@@ -36,7 +36,8 @@ public class LoanAdapter extends BaseQuickAdapter<ProductList.ListBean,BaseViewH
         Glide.with(mContext).load(item.getLogo()).apply(options).into((ImageView)helper.getView(R.id.logo));
         helper.setText(R.id.name,item.getName())
                 .setText(R.id.tv_desc,item.getIntroduct())
-                .setText(R.id.apply,item.getPosition_sort()+"人已申请");
+                .setText(R.id.apply,item.getSuccess_count()+"人已申请")
+                .setRating(R.id.ratting,item.getStar());
    /*     String interestAlgorithm = item.getInterest_algorithm();
         helper.setText(R.id.name,item.getP_name())
                 .setText(R.id.desc,"额度"+item.getMinimum_amount()+"-"+item.getMaximum_amount()+"元"+

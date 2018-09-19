@@ -22,14 +22,18 @@ import java.util.Map;
 
 public class BrowsingHistory {
 
-    public  void execute(final String prdId) {
+    public  void execute(final String prdId,String type) {
 
         String token = SPUtil.getString(Contacts.TOKEN);
         String channel = WalleChannelReader.getChannel(App.getApp());
-        String netError = App.getApp().getString(R.string.app_name);
+        String string = App.getApp().getString(R.string.App_name);
+
         Map<String,String> map=new HashMap<>();
         map.put("id",prdId);
-        map.put("terminal","0");
+        map.put("user_token",token);
+        map.put("channel",string);
+        map.put("market",channel);
+         map.put("type",type);
         ApiService.GET_SERVICE(Api.APPLY, map, new OnRequestDataListener() {
             @Override
             public void requestSuccess(int code, JSONObject json) {

@@ -10,13 +10,20 @@ public interface Api {
     String HOST = "http://api.shengcaiquan.com/v1/";
 
     String CREDIT = HOST + "vip/creditCard";
-    String APPLY=HOST+"product/apply";
+    String APPLY=HOST+"statistics/log";
 
     interface Home {
         /**
          * 新品
          **/
         String NEW_PRODUCT = HOST + "vest/onlineProduct";
+
+        /**
+         * 滚动
+         *
+         */
+
+        String PROMOTIONS =HOST+"promotions";
         /**
          * banner
          **/

@@ -180,7 +180,7 @@ public class LoginActivity extends BaseActivity {
                     String link = getIntent().getStringExtra("link");
                     if (!TextUtils.isEmpty(title)) {
                         String id = getIntent().getStringExtra("id");
-                        new BrowsingHistory().execute(id);
+                        new BrowsingHistory().execute(id,Contacts.PRODUCT_TYPE);
                         Intent intent = new Intent(LoginActivity.this, HtmlActivity.class);
                         intent.putExtra("title", title);
                         intent.putExtra("link", link);

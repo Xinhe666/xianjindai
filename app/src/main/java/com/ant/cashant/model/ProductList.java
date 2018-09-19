@@ -86,6 +86,7 @@ public class ProductList implements Serializable{
          * max_day_rate : 0
          * star : 3
          */
+        private String product_id;
 
         private String id;
         private int platform_id;
@@ -141,6 +142,14 @@ public class ProductList implements Serializable{
         private int min_day_rate;
         private int max_day_rate;
         private int star;
+
+        public String getProduct_id() {
+            return product_id;
+        }
+
+        public void setProduct_id(String product_id) {
+            this.product_id = product_id;
+        }
 
         public String getId() {
             return id;

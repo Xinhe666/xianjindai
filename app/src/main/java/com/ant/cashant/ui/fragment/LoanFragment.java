@@ -107,10 +107,11 @@ public class LoanFragment extends BaseFragment {
                     Intent intent = new Intent(getActivity(), LoginActivity.class);
                     intent.putExtra("title", product.getName());
                     intent.putExtra("link", product.getH5_url());
-                    intent.putExtra("id", product.getId());
+                    intent.putExtra("id", product.getProduct_id());
                     startActivity(intent);
                 } else {
-                    new BrowsingHistory().execute(product.getId());
+
+                    new BrowsingHistory().execute(product.getProduct_id(),Contacts.PRODUCT_TYPE);
                     Intent intent = new Intent(getActivity(), HtmlActivity.class);
                     intent.putExtra("title", product.getName());
                     intent.putExtra("link", product.getH5_url());
@@ -174,7 +175,6 @@ public class LoanFragment extends BaseFragment {
         if (!EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this);
         }
-        unbinder.unbind();
     }
 
     @OnClick({R.id.tv_limit, R.id.tv_rate, R.id.tv_success, R.id.tv_speed})
