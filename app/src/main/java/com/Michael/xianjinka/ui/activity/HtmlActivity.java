@@ -76,7 +76,6 @@ public class HtmlActivity extends BaseActivity {
             String title = getIntent().getStringExtra("title");
             toolbarTitle.setText(title);
             String link = getIntent().getStringExtra("link");
-
             getDate(link);
 
         }
